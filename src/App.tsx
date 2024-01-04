@@ -1,15 +1,14 @@
-import { MDXEditor } from '@mdxeditor/editor/MDXEditor'
+import { MDXEditor, ChangeCodeMirrorLanguage, ConditionalContents, InsertCodeBlock, InsertSandpack, SandpackConfig, ShowSandpackInfo, codeBlockPlugin, codeMirrorPlugin, sandpackPlugin, toolbarPlugin } from '@mdxeditor/editor'
 import '@mdxeditor/editor/style.css'
-import { ChangeCodeMirrorLanguage, ConditionalContents, InsertCodeBlock, InsertSandpack, SandpackConfig, ShowSandpackInfo, codeBlockPlugin, codeMirrorPlugin, sandpackPlugin, toolbarPlugin } from '@mdxeditor/editor'
 
 const defaultSnippetContent = `
 export default function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
+return (
+<div className="App">
+<h1>Hello CodeSandbox</h1>
+<h2>Start editing to see some magic happen!</h2>
+</div>
+);
 }
 `.trim()
 
@@ -40,14 +39,14 @@ function App() {
         toolbarPlugin({toolbarContents: () => (
           <ConditionalContents
             options={[
-                { when: (editor) => editor?.editorType === 'codeblock', contents: () => <ChangeCodeMirrorLanguage /> },
-                { when: (editor) => editor?.editorType === 'sandpack', contents: () => <ShowSandpackInfo /> },
-                { fallback: () => ( <> 
+              { when: (editor) => editor?.editorType === 'codeblock', contents: () => <ChangeCodeMirrorLanguage /> },
+              { when: (editor) => editor?.editorType === 'sandpack', contents: () => <ShowSandpackInfo /> },
+              { fallback: () => ( <> 
                 <InsertCodeBlock />
                 <InsertSandpack />
               </>) }
-              ]}
-            />)
+            ]}
+          />)
         })
       ]
       } 

@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mdxeditor/editor": "^0.13.0",
+    "@mdxeditor/editor": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
